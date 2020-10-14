@@ -51,24 +51,26 @@ namespace PracticeProblemsLINQ
             //code
             var result = customers.FirstOrDefault(c => c.FirstName.Equals("Mike"));
             //return
-            Console.WriteLine(result);
+            Console.WriteLine(result.FirstName);
             return result;
 
         }
         #endregion
 
-        //#region Problem 4
-        ////(5 points) Problem 4
-        ////Using LINQ, write a method that takes in a list of customers and returns the customer who has an id of 3. 
-        ////Then, update that customer's first name and last name to completely different names and return the newly updated customer from the method.
-        //public static Customer RunProblem4(List<Customer> customers)
-        //{
-        //    //code
+        #region Problem 4
+        //(5 points) Problem 4
+        //Using LINQ, write a method that takes in a list of customers and returns the customer who has an id of 3. 
+        //Then, update that customer's first name and last name to completely different names and return the newly updated customer from the method.
+        public static Customer RunProblem4(List<Customer> customers)
+        {
+            //code
+            var result = customers.FirstOrDefault(c => c.Id.Equals(3));
+            //return
+            Console.WriteLine(result.FirstName, result.Id, result.LastName);
+            return result;
 
-        //    //return
-
-        //}
-        //#endregion
+        }
+        #endregion
 
         //#region Problem 5
         ////(5 points) Problem 5
