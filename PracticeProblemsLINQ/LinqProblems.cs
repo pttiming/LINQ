@@ -64,40 +64,24 @@ namespace PracticeProblemsLINQ
         public static Customer RunProblem4(List<Customer> customers)
         {
             //code
+<<<<<<< HEAD
             var result = customers.FirstOrDefault(c => c.Id.Equals(3));
             //return
             Console.WriteLine(result.FirstName, result.Id, result.LastName);
             return result;
 
+=======
+            var result = customers.Find(c => c.Id.Equals(3));
+            result.FirstName = "Jean-Luc";
+            result.LastName = "Picard";
+
+            Console.WriteLine($"{result.Id} {result.FirstName} {result.LastName}");
+            //return
+            return result;
+>>>>>>> f6d6aa35ab6590fe52f1072d83d6a934602d81c5
         }
         #endregion
 
-        //#region Problem 5
-        ////(5 points) Problem 5
-        ////Using LINQ, write a method that calculates the class grade average after dropping the lowest grade for each student.
-        ////The method should take in a list of strings of grades (e.g., one string might be "90,100,82,89,55"), 
-        ////drops the lowest grade from each string, averages the rest of the grades from that string, then averages the averages.
-        ////Expected output: 86.125
-        //public static double RunProblem5(List<string> classGrades)
-        //{
-        //    //code
-
-        //    //return
-
-        //}
-        //#endregion
-
-        //#region Bonus Problem 1
-        ////(5 points) Bonus Problem 1
-        ////Write a method that takes in a string of letters(i.e. “Terrill”) 
-        ////and returns an alphabetically ordered string corresponding to the letter frequency(i.e. "E1I1L2R2T1")
-        //public static string RunBonusProblem1(string word)
-        //{
-        //    //code
-
-        //    //return
-
-        //}
-        //#endregion
+        
+        }
     }
-}
