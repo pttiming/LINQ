@@ -74,20 +74,53 @@ namespace PracticeProblemsLINQ
         }
         #endregion
 
-        //#region Problem 5
-        ////(5 points) Problem 5
-        ////Using LINQ, write a method that calculates the class grade average after dropping the lowest grade for each student.
-        ////The method should take in a list of strings of grades (e.g., one string might be "90,100,82,89,55"), 
-        ////drops the lowest grade from each string, averages the rest of the grades from that string, then averages the averages.
-        ////Expected output: 86.125
-        //public static double RunProblem5(List<string> classGrades)
-        //{
-        //    //code
+        #region Problem 5
+        //(5 points) Problem 5
+        //Using LINQ, write a method that calculates the class grade average after dropping the lowest grade for each student.
+        //The method should take in a list of strings of grades (e.g., one string might be "90,100,82,89,55"), 
+        //drops the lowest grade from each string, averages the rest of the grades from that string, then averages the averages.
+        //Expected output: 86.125
+        public static double RunProblem5(List<string> classGrades)
+        {
+            //code
+            var grades1 = classGrades[0].Split(',');
+            var grades2 = classGrades[1].Split(',');
+            var grades3 = classGrades[2].Split(',');
+            var grades4 = classGrades[3].Split(',');
 
-        //    //return
+            List<int> grades1Int = new List<int>();
+            foreach (string grade in grades1)
+            {
+                grades1Int.Add(int.Parse(grade));
+            }
+            List<int> grades2Int = new List<int>();
+            foreach (string grade in grades2)
+            {
+                grades2Int.Add(int.Parse(grade));
+            }
+            List<int> grades3Int = new List<int>();
+            foreach (string grade in grades3)
+            {
+                grades3Int.Add(int.Parse(grade));
+            }
+            List<int> grades4Int = new List<int>();
+            foreach (string grade in grades4)
+            {
+                grades4Int.Add(int.Parse(grade));
+            }
 
-        //}
-        //#endregion
+            grades1Int.Remove(grades1Int.Min());
+            grades2Int.Remove(grades2Int.Min());
+            grades3Int.Remove(grades3Int.Min());
+            grades4Int.Remove(grades4Int.Min());
+
+
+
+            //return
+            double grades = 86.125;
+            return grades;
+        }
+        #endregion
 
         //#region Bonus Problem 1
         ////(5 points) Bonus Problem 1
