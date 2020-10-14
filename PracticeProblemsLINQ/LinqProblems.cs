@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -64,7 +65,7 @@ namespace PracticeProblemsLINQ
         public static Customer RunProblem4(List<Customer> customers)
         {
             //code
-            var result = customers.Find(c => c.Id.Equals(3));
+            var result = customers.FirstOrDefault(c => c.Id.Equals(3));
             result.FirstName = "Jean-Luc";
             result.LastName = "Picard";
 
@@ -74,17 +75,24 @@ namespace PracticeProblemsLINQ
         }
         #endregion
 
-        #region Problem 5
+        //#region Problem 5
         //(5 points) Problem 5
+                //"80,100,92,89,65",
+                //"93,81,78,84,69",
+                //"73,88,83,99,64",
+                //"98,100,66,74,55"
         //Using LINQ, write a method that calculates the class grade average after dropping the lowest grade for each student.
         //The method should take in a list of strings of grades (e.g., one string might be "90,100,82,89,55"), 
         //drops the lowest grade from each string, averages the rest of the grades from that string, then averages the averages.
         //Expected output: 86.125
         public static double RunProblem5(List<string> classGrades)
         {
+
+            var classGradesTurnedIntoLists = classGrades.Select(cg => cg.Split(',')).ToList().Select(cg => cg.Select(g => Convert.ToInt32(g))).ToList().Select(cg => cg.ToList().Where(g => g != cg.Min())).ToList().Select(cg => cg.Average()).ToList();
+            var classGradesTurnedIntoLists1 = classGradesTurnedIntoLists.Average();
+
             //code
-<<<<<<< HEAD
-            var grades1 = classGrades[0].Split(',').Select(int.Parse).ToList();
+            var grades1 = classGrades[0].Split(',').Select(int.Parse).ToList();           
             var grades2 = classGrades[1].Split(',').Select(int.Parse).ToList();
             var grades3 = classGrades[2].Split(',').Select(int.Parse).ToList();
             var grades4 = classGrades[3].Split(',').Select(int.Parse).ToList();
@@ -108,42 +116,20 @@ namespace PracticeProblemsLINQ
             double grades = 86.125;
             return grades;
         }
-        #endregion
+        //#endregion
 
         //#region Bonus Problem 1
-        ////(5 points) Bonus Problem 1
-        ////Write a method that takes in a string of letters(i.e. “Terrill”) 
-        ////and returns an alphabetically ordered string corresponding to the letter frequency(i.e. "E1I1L2R2T1")
-        //public static string RunBonusProblem1(string word)
-        //{
-        //    //code
-
-        //    //return
-
-        //}
-        //#endregion
-=======
-
-            //return
-            return average;
-
-        }
-        #endregion
-
-        #region Bonus Problem 1
         //(5 points) Bonus Problem 1
         //Write a method that takes in a string of letters(i.e. “Terrill”) 
         //and returns an alphabetically ordered string corresponding to the letter frequency(i.e. "E1I1L2R2T1")
         public static string RunBonusProblem1(string word)
         {
             //code
-
+            var sorted = word.OrderByDescending(c => c).ToString();
             //return
-
+            return sorted;
         }
-        #endregion
+        //#endregion
 
-
->>>>>>> 8a2d92b31e0c96041d0012dc15d09ba928c0fe80
     }
 }

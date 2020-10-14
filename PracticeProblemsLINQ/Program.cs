@@ -42,15 +42,17 @@ namespace PracticeProblemsLINQ
             //Bonus Problem 1
             string letters = "terrill";
 
-            LinqProblems.RunProblem1(words);
-            Console.WriteLine();
-            LinqProblems.RunProblem2(names);
-            Console.WriteLine();
-            LinqProblems.RunProblem3(customers);
-            Console.WriteLine();
-            LinqProblems.RunProblem4(customers);
-            Console.WriteLine();
+            //LinqProblems.RunProblem1(words);
+            //Console.WriteLine();
+            //LinqProblems.RunProblem2(names);
+            //Console.WriteLine();
+            //LinqProblems.RunProblem3(customers);
+            //Console.WriteLine();
+            //LinqProblems.RunProblem4(customers);
+            //Console.WriteLine();
             LinqProblems.RunProblem5(classGrades);
+            Console.WriteLine();
+            LinqProblems.RunBonusProblem1(letters);
             Console.ReadLine();
 
 
