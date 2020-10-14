@@ -83,38 +83,25 @@ namespace PracticeProblemsLINQ
         public static double RunProblem5(List<string> classGrades)
         {
             //code
-            var grades1 = classGrades[0].Split(',');
-            var grades2 = classGrades[1].Split(',');
-            var grades3 = classGrades[2].Split(',');
-            var grades4 = classGrades[3].Split(',');
+            var grades1 = classGrades[0].Split(',').Select(int.Parse).ToList();
+            var grades2 = classGrades[1].Split(',').Select(int.Parse).ToList();
+            var grades3 = classGrades[2].Split(',').Select(int.Parse).ToList();
+            var grades4 = classGrades[3].Split(',').Select(int.Parse).ToList();
 
-            List<int> grades1Int = new List<int>();
-            foreach (string grade in grades1)
-            {
-                grades1Int.Add(int.Parse(grade));
-            }
-            List<int> grades2Int = new List<int>();
-            foreach (string grade in grades2)
-            {
-                grades2Int.Add(int.Parse(grade));
-            }
-            List<int> grades3Int = new List<int>();
-            foreach (string grade in grades3)
-            {
-                grades3Int.Add(int.Parse(grade));
-            }
-            List<int> grades4Int = new List<int>();
-            foreach (string grade in grades4)
-            {
-                grades4Int.Add(int.Parse(grade));
-            }
+            grades1.Sort();
+            grades2.Sort();
+            grades3.Sort();
+            grades4.Sort();
 
-            grades1Int.Remove(grades1Int.Min());
-            grades2Int.Remove(grades2Int.Min());
-            grades3Int.Remove(grades3Int.Min());
-            grades4Int.Remove(grades4Int.Min());
+            grades1.RemoveAt(0);
+            grades2.RemoveAt(0);
+            grades3.RemoveAt(0);
+            grades4.RemoveAt(0);
 
-
+            var grades1Average = grades1.Average();
+            var grades2Average = grades2.Average();
+            var grades3Average = grades3.Average();
+            var grades4Average = grades4.Average();
 
             //return
             double grades = 86.125;

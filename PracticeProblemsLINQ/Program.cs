@@ -49,7 +49,8 @@ namespace PracticeProblemsLINQ
             LinqProblems.RunProblem3(customers);
             Console.WriteLine();
             LinqProblems.RunProblem4(customers);
-
+            Console.WriteLine();
+            LinqProblems.RunProblem5(classGrades);
             Console.ReadLine();
 
 
