@@ -49,7 +49,7 @@ namespace PracticeProblemsLINQ
         public static Customer RunProblem3(List<Customer> customers)
         {
             //code
-            var result = customers.FirstOrDefault(c => c.FirstName.Equals("Mike"));
+            var result = customers.SingleOrDefault(c => c.FirstName.Equals("Mike"));
             //return
             Console.WriteLine(result);
             return result;
@@ -83,6 +83,7 @@ namespace PracticeProblemsLINQ
         public static double RunProblem5(List<string> classGrades)
         {
             //code
+<<<<<<< HEAD
             var grades1 = classGrades[0].Split(',').Select(int.Parse).ToList();
             var grades2 = classGrades[1].Split(',').Select(int.Parse).ToList();
             var grades3 = classGrades[2].Split(',').Select(int.Parse).ToList();
@@ -121,5 +122,28 @@ namespace PracticeProblemsLINQ
 
         //}
         //#endregion
+=======
+
+            //return
+            return average;
+
+        }
+        #endregion
+
+        #region Bonus Problem 1
+        //(5 points) Bonus Problem 1
+        //Write a method that takes in a string of letters(i.e. “Terrill”) 
+        //and returns an alphabetically ordered string corresponding to the letter frequency(i.e. "E1I1L2R2T1")
+        public static string RunBonusProblem1(string word)
+        {
+            //code
+
+            //return
+
+        }
+        #endregion
+
+
+>>>>>>> 8a2d92b31e0c96041d0012dc15d09ba928c0fe80
     }
 }
