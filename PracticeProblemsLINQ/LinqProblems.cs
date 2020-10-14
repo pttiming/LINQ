@@ -49,8 +49,9 @@ namespace PracticeProblemsLINQ
         public static Customer RunProblem3(List<Customer> customers)
         {
             //code
-            var result = customers.Where(c => c.FirstName.Equals("Mike"));
+            var result = customers.FirstOrDefault(c => c.FirstName.Equals("Mike"));
             //return
+            Console.WriteLine(result);
             return result;
 
         }
