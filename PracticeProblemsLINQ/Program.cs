@@ -42,6 +42,15 @@ namespace PracticeProblemsLINQ
             //Bonus Problem 1
             string letters = "terrill";
 
+            LinqProblems.RunProblem1(words);
+            Console.WriteLine();
+            LinqProblems.RunProblem2(names);
+            Console.WriteLine();
+            LinqProblems.RunProblem3(customers);
+
+            Console.ReadLine();
+
+
         }
     }
 }
