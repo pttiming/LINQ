@@ -64,13 +64,6 @@ namespace PracticeProblemsLINQ
         public static Customer RunProblem4(List<Customer> customers)
         {
             //code
-<<<<<<< HEAD
-            var result = customers.FirstOrDefault(c => c.Id.Equals(3));
-            //return
-            Console.WriteLine(result.FirstName, result.Id, result.LastName);
-            return result;
-
-=======
             var result = customers.Find(c => c.Id.Equals(3));
             result.FirstName = "Jean-Luc";
             result.LastName = "Picard";
@@ -78,7 +71,6 @@ namespace PracticeProblemsLINQ
             Console.WriteLine($"{result.Id} {result.FirstName} {result.LastName}");
             //return
             return result;
->>>>>>> f6d6aa35ab6590fe52f1072d83d6a934602d81c5
         }
         #endregion
 
