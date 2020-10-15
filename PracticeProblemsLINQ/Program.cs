@@ -44,14 +44,19 @@ namespace PracticeProblemsLINQ
 
             Console.WriteLine("Problem 1");
             LinqProblems.RunProblem1(words);
+            Console.WriteLine();
             Console.WriteLine("Problem 2");
             LinqProblems.RunProblem2(names);
+            Console.WriteLine();
             Console.WriteLine("Problem 3");
             LinqProblems.RunProblem3(customers);
+            Console.WriteLine();
             Console.WriteLine("Problem 4");
             LinqProblems.RunProblem4(customers);
+            Console.WriteLine();
             Console.WriteLine("Problem 5");
             Console.WriteLine(LinqProblems.RunProblem5(classGrades));
+            Console.WriteLine();
             Console.WriteLine("Bonus Problem 1");
             Console.WriteLine(LinqProblems.RunBonusProblem1(letters));
             Console.ReadLine();
