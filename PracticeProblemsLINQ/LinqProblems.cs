@@ -52,7 +52,7 @@ namespace PracticeProblemsLINQ
             //code
             var result = customers.SingleOrDefault(c => c.FirstName.Equals("Mike"));
             //return
-            Console.WriteLine(result);
+            Console.WriteLine($"{result.FirstName}");
             return result;
 
         }
@@ -65,8 +65,8 @@ namespace PracticeProblemsLINQ
         public static Customer RunProblem4(List<Customer> customers)
         {
             //code
-            var result = customers.FirstOrDefault(c => c.Id.Equals(3));
-            result.FirstName = "Jean-Luc";
+            var result = customers.Find(c => c.Id.Equals(3));
+            result.FirstName = "Jean Luc";
             result.LastName = "Picard";
 
             Console.WriteLine($"{result.Id} {result.FirstName} {result.LastName}");
@@ -75,7 +75,7 @@ namespace PracticeProblemsLINQ
         }
         #endregion
 
-        //#region Problem 5
+        #region Problem 5
         //(5 points) Problem 5
                 //"80,100,92,89,65",
                 //"93,81,78,84,69",
@@ -88,48 +88,41 @@ namespace PracticeProblemsLINQ
         public static double RunProblem5(List<string> classGrades)
         {
 
-            var classGradesTurnedIntoLists = classGrades.Select(cg => cg.Split(',')).ToList().Select(cg => cg.Select(g => Convert.ToInt32(g))).ToList().Select(cg => cg.ToList().Where(g => g != cg.Min())).ToList().Select(cg => cg.Average()).ToList();
-            var classGradesTurnedIntoLists1 = classGradesTurnedIntoLists.Average();
-
             //code
-            var grades1 = classGrades[0].Split(',').Select(int.Parse).ToList();           
-            var grades2 = classGrades[1].Split(',').Select(int.Parse).ToList();
-            var grades3 = classGrades[2].Split(',').Select(int.Parse).ToList();
-            var grades4 = classGrades[3].Split(',').Select(int.Parse).ToList();
+            //Original MVP
+            var grades1 = classGrades.Select(cg => cg.Split(',')).ToList().Select(cg => cg.Select(g => Convert.ToInt32(g))).ToList().Select(cg => cg.ToList().Where(g => g != cg.Min())).ToList().Select(cg => cg.Average()).ToList().Average();
 
-            grades1.Sort();
-            grades2.Sort();
-            grades3.Sort();
-            grades4.Sort();
-
-            grades1.RemoveAt(0);
-            grades2.RemoveAt(0);
-            grades3.RemoveAt(0);
-            grades4.RemoveAt(0);
-
-            var grades1Average = grades1.Average();
-            var grades2Average = grades2.Average();
-            var grades3Average = grades3.Average();
-            var grades4Average = grades4.Average();
-
+            //Cleaned up Version
+            var grades = classGrades.Average(cg => cg.Split(',').Select(int.Parse).OrderBy(x => x).Skip(1).Average());
+            
             //return
-            double grades = 86.125;
-            return grades;
+            return grades1;
         }
-        //#endregion
+        #endregion
 
-        //#region Bonus Problem 1
+        #region Bonus Problem 1
         //(5 points) Bonus Problem 1
         //Write a method that takes in a string of letters(i.e. “Terrill”) 
         //and returns an alphabetically ordered string corresponding to the letter frequency(i.e. "E1I1L2R2T1")
         public static string RunBonusProblem1(string word)
         {
             //code
-            var sorted = word.OrderByDescending(c => c).ToString();
+            //LINQ Extension Method
+            var result1 = word.ToUpper().ToArray().OrderBy(l => l).GroupBy(l => l).Select(x => x.Key.ToString() + x.Count().ToString()).Aggregate((i, j) => i+j);
+
+            //LINQ Query Method
+            string result = null;
+            var sorted = from l in word.ToUpper().ToArray().OrderBy(l => l)
+                         group l by l into x
+                         select x;
+            foreach (var x in sorted)
+            {
+                result = result + x.Key.ToString() + x.Count().ToString();
+            }
             //return
-            return sorted;
+            return result1;
         }
-        //#endregion
+        #endregion
 
     }
 }
